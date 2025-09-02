@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>INJECT MAGIC</title>
+    <style>
+      @font-face {
+        font-family: "MessinaSans";
+        src: url("./fonts/MessinaSans-Bold.woff2") format("woff2");
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "MessinaSans";
+        src: url("./fonts/MessinaSans-Regular.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "MessinaSans", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
+        font-weight: bold;
+        background-color: white;
+        color: black;
+        line-height: 1.6;
+        cursor: url("./images/cursornew.png"), pointer;
+
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        text-align: left;
+        margin: 0 auto;
+      }
+
+      .logo {
+        width: auto;
+        height: 120px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .wordmark {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        display: block;
+        object-fit: contain;
+      }
+
+      .entries-list {
+        margin-bottom: 1.5rem;
+        display: table;
+        width: 100%;
+      }
+
+      .entry {
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        display: table-row;
+        padding: 0.5rem 0;
+      }
+
+      .entry-date {
+        font-weight: bold;
+        margin-right: 1rem;
+        display: table-cell;
+        width: 60px;
+        vertical-align: top;
+        padding: 0.5rem 0;
+      }
+
+      .entry-title {
+        display: table-cell;
+        vertical-align: top;
+        padding: 0.5rem 0;
+      }
+
+      .link-text {
+        display: inline-block;
+        text-decoration: underline;
+        cursor: url("./images/logodark.png"), pointer;
+        transition: opacity 0.2s;
+      }
+
+      .entry-title:hover {
+        opacity: 0.7;
+      }
+
+      .redacted {
+        background-color: black;
+        color: white;
+        padding: 0 1.5rem 0 0.5rem;
+        display: inline-block;
+        text-decoration: none;
+        font-weight: normal;
+      }
+
+      .redacted-container {
+        display: table-cell;
+        vertical-align: top;
+        padding: 0.5rem 0;
+      }
+
+      .subscription-form {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        gap: 0;
+        flex-wrap: nowrap;
+      }
+
+      .email-input {
+        padding: 0.75rem 1rem;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        font-size: 1rem;
+        font-weight: normal;
+        min-width: 150px;
+        flex: 1;
+        outline: none;
+      }
+
+      .email-input::placeholder {
+        color: black;
+        font-weight: normal;
+      }
+
+      .subscribe-btn {
+        padding: 0.75rem 1.5rem;
+        background-color: black;
+        color: white;
+        border: none;
+        font-size: 1rem;
+        font-weight: normal;
+        cursor: url("./images/logodark.png"), pointer;
+        transition: opacity 0.2s;
+      }
+
+      .subscribe-btn:hover {
+        opacity: 0.8;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-icons a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .social-icons a:hover {
+        color: black;
+      }
+
+      .social-icon {
+        width: 24px;
+        height: 24px;
+        cursor: url("./images/logodark.png"), pointer;
+        transition: opacity 0.2s;
+      }
+
+      .social-icon:hover {
+        opacity: 0.7;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .logo {
+          width: auto;
+          height: 100px;
+        }
+
+        .wordmark {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        .entry {
+          font-size: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .subscription-form {
+          gap: 0;
+        }
+
+        .email-input {
+          min-width: 100px;
+        }
+
+        .social-icons {
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          width: auto;
+          height: 80px;
+        }
+
+        .wordmark {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        .entry {
+          font-size: 0.9rem;
+        }
+
+        .email-input {
+          min-width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-container">
+        <img
+          src="./images/animated_logo.gif"
+          alt="Logo"
+          class="logo"
+          id="logo"
+        />
+      </div>
+      <img src="./images/wordmark.png" alt="INJECT MAGIC" class="wordmark" />
+
+      <div class="entries-list">
+        <div class="entry">
+          <span class="entry-date">01.18</span>
+          <span class="entry-title">
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none; color: black"
+            >
+              <span class="link-text">PONZICOIN</span>
+            </a>
+          </span>
+        </div>
+        <div class="entry">
+          <span class="entry-date">10.24</span>
+          <span class="entry-title">
+            <a
+              href="./halloween.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none; color: black"
+            >
+              <span class="link-text">MTA HALLOWEEN POSTERS</span>
+            </a>
+          </span>
+        </div>
+        <div class="entry">
+          <span class="entry-date">09.25</span>
+          <span class="entry-title">
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none; color: black"
+            >
+              <span class="link-text">THE ICARUS PROTOCOL</span>
+            </a>
+          </span>
+        </div>
+        <div class="entry">
+          <span class="entry-date">??.??</span>
+          <div class="redacted-container">
+            <span class="redacted">[REDACTED]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a
+          href="https://x.com/InjectMagic"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.instagram.com/injectmagic/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <form class="subscription-form">
+        <input type="email" class="email-input" placeholder="EMAIL" required />
+        <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
+      </form>
+    </div>
+
+    <script>
+      // Handle form submission
+      document
+        .querySelector(".subscription-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.querySelector(".email-input").value;
+          if (email) {
+            alert("Thank you for subscribing!");
+            document.querySelector(".email-input").value = "";
+          }
+        });
+    </script>
+  </body>
+</html>

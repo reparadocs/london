@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>MTA HALLOWEEN POSTERS - INJECT MAGIC</title>
+    <style>
+      @font-face {
+        font-family: "MessinaSans";
+        src: url("./fonts/MessinaSans-Bold.woff2") format("woff2");
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "MessinaSans";
+        src: url("./fonts/MessinaSans-Regular.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: url("./images/cursornew.png"), pointer;
+      }
+
+      body {
+        font-family: "MessinaSans", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
+        font-weight: bold;
+        background-color: white;
+        color: black;
+        line-height: 1.6;
+        min-height: 100vh;
+        padding: 2rem;
+        position: relative;
+      }
+
+      .container {
+        max-width: 1200px;
+        position: relative;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo {
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+        width: auto;
+        height: 60px;
+        display: block;
+        z-index: 1000;
+      }
+
+      .wordmark {
+        height: 60px;
+        width: auto;
+        display: block;
+        margin-left: 4rem;
+      }
+
+      .project-info {
+        margin-left: 4rem;
+        margin-top: 1.5rem;
+      }
+
+      .date {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-left: -0.3rem;
+        line-height: 1;
+      }
+
+      .project-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-left: -0.3rem;
+        line-height: 1;
+      }
+
+      .images-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        margin-left: 4rem;
+        justify-content: flex-start;
+      }
+
+      /* Default: target ~2 columns, expand as space allows */
+      .image-item {
+        display: block;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #ddd;
+        transition: transform 0.2s;
+        flex: 0 0 calc(50% - 0.75rem);
+      }
+
+      /* Large screens: 3 columns */
+      @media (min-width: 1200px) {
+        .image-item {
+          flex-basis: calc(33.333% - 1rem);
+        }
+      }
+
+      /* XL screens: 4 columns */
+      @media (min-width: 1600px) {
+        .image-item {
+          flex-basis: calc(25% - 1.125rem);
+        }
+      }
+
+      .image-item:hover {
+        transform: scale(1.02);
+      }
+
+      .projects-link {
+        position: fixed;
+        left: -0.5rem;
+        top: 11.5rem;
+        transform: translateY(-50%) rotate(270deg);
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #666;
+        text-decoration: none;
+        cursor: url("./images/logodark.png"), pointer;
+        transition: color 0.2s;
+      }
+
+      .projects-link:hover {
+        color: black;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .logo {
+          position: static;
+        }
+
+        .container {
+          margin-top: 0;
+        }
+
+        .header {
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .wordmark {
+          margin-left: 0;
+          height: 40px;
+        }
+
+        .project-info {
+          margin-left: 0;
+        }
+
+        .project-title {
+          font-size: 1.5rem;
+        }
+
+        .date {
+          font-size: 1.5rem;
+        }
+
+        .images-grid {
+          margin-left: 0;
+        }
+
+        .image-item {
+          flex: 0 0 100%;
+        }
+
+        .projects-link {
+          position: static;
+          transform: none;
+          margin-top: 0;
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img src="./images/logo.png" alt="Logo" class="logo" />
+        <a href="./index.html" class="projects-link">PROJECTS</a>
+      </div>
+
+      <img src="./images/wordmark.png" alt="INJECT MAGIC" class="wordmark" />
+
+      <div class="project-info">
+        <div class="date">OCTOBER 2024</div>
+        <div class="project-title">MTA HALLOWEEN POSTERS</div>
+      </div>
+
+      <div class="images-grid">
+        <img
+          src="./images/halloween/Service Change.png"
+          alt="Service Change"
+          class="image-item"
+        />
+        <img src="./images/halloween/PSA.png" alt="PSA" class="image-item" />
+        <img
+          src="./images/halloween/Maintenance.png"
+          alt="Maintenance"
+          class="image-item"
+        />
+        <img
+          src="./images/halloween/Courtesy Counts.png"
+          alt="Courtesy Counts"
+          class="image-item"
+        />
+        <img
+          src="./images/halloween/Courtesy Counts - Potion.png"
+          alt="Courtesy Counts - Potion"
+          class="image-item"
+        />
+      </div>
+    </div>
+
+    <script>
+      // Handle logo hover effects if needed
+      document
+        .querySelector(".logo")
+        .addEventListener("mouseenter", function () {
+          this.style.opacity = "0.8";
+        });
+
+      document
+        .querySelector(".logo")
+        .addEventListener("mouseleave", function () {
+          this.style.opacity = "1";
+        });
+    </script>
+  </body>
+</html>
