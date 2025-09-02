@@ -327,24 +327,10 @@
         </a>
       </div>
 
-      <form class="subscription-form">
+      <form class="subscription-form" name="contact" netlify>
         <input type="email" class="email-input" placeholder="EMAIL" required />
         <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
       </form>
     </div>
-
-    <script>
-      // Handle form submission
-      document
-        .querySelector(".subscription-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const email = document.querySelector(".email-input").value;
-          if (email) {
-            alert("Thank you for subscribing!");
-            document.querySelector(".email-input").value = "";
-          }
-        });
-    </script>
   </body>
 </html>
