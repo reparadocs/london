@@ -84,44 +84,26 @@
         font-weight: bold;
         margin-left: -0.3rem;
         line-height: 1;
+        margin-bottom: 1rem;
       }
 
-      .images-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
+      .project-description mark {
+        background-color: black;
+        color: white;
+        padding: 0.2rem 0.4rem;
+      }
+
+      .images-container {
         margin-top: 1.5rem;
         margin-left: 4rem;
-        justify-content: flex-start;
       }
 
-      /* Default: target ~2 columns, expand as space allows */
-      .image-item {
+      .images-container img {
         display: block;
-        height: auto;
-        width: 100%;
+        margin-bottom: 2rem;
         max-width: 100%;
+        height: auto;
         border: 1px solid #ddd;
-        transition: transform 0.2s;
-        flex: 0 0 calc(50% - 0.75rem);
-      }
-
-      /* Large screens: 3 columns */
-      @media (min-width: 1200px) {
-        .image-item {
-          flex-basis: calc(33.333% - 1rem);
-        }
-      }
-
-      /* XL screens: 4 columns */
-      @media (min-width: 1600px) {
-        .image-item {
-          flex-basis: calc(25% - 1.125rem);
-        }
-      }
-
-      .image-item:hover {
-        transform: scale(1.02);
       }
 
       .projects-link {
@@ -179,12 +161,8 @@
           font-size: 1.5rem;
         }
 
-        .images-grid {
+        .images-container {
           margin-left: 0;
-        }
-
-        .image-item {
-          flex: 0 0 100%;
         }
 
         .projects-link {
@@ -206,13 +184,32 @@
       <img src="./images/wordmark.png" alt="INJECT MAGIC" class="wordmark" />
 
       <div class="project-info">
-        <div class="date">DECEMBER 2024</div>
+        <div class="date">JANUARY 2018</div>
         <div class="project-title">PONZICOIN</div>
-        <div>The world's first legitimate pyramid scheme.</div>
+        <div class="project-description">
+          A cryptocurrency that was upfront about being a pyramid scheme.<br />
+          $600k worth of Ethereum invested in 6 hours.<br />
+          Shut down by the SEC.
+          <br />
+          <br />
+          <a
+            href="https://web.archive.org/web/20180124201626/http://ponzicoin.co/home.html"
+            >ARCHIVE LINK</a
+          >
+
+          &nbsp;•&nbsp;
+          <a href="https://github.com/reparadocs/PonziCoin">GITHUB</a>
+          &nbsp;•&nbsp;
+          <a href="https://www.sec.gov/investor/alerts/ia_virtualcurrencies.pdf"
+            >WHITEPAPER</a
+          >
+        </div>
       </div>
 
-      <div class="images-grid">
-        <!-- Add your PonziCoin images here -->
+      <div class="images-container">
+        <img src="./images/ponzicoin/summary.png" alt="Summary" />
+
+        <img src="./images/ponzicoin/howitworks.png" alt="How It Works" />
       </div>
     </div>
 
