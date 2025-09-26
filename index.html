@@ -119,6 +119,29 @@
         padding: 0.5rem 0;
       }
 
+      .ca-badge {
+        background-color: black;
+        color: white;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+        font-weight: normal;
+        margin-left: 0.5rem;
+        border-radius: 3px;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: url("./images/cursorhover.svg"), pointer;
+        transition: opacity 0.2s;
+      }
+
+      .ca-badge:hover {
+        opacity: 0.7;
+      }
+
+      .ca-badge.copied {
+        background-color: #4CAF50;
+        transition: background-color 0.3s;
+      }
+
       .subscription-form {
         margin-bottom: 2rem;
         display: flex;
@@ -305,6 +328,7 @@
             >
               <span class="link-text">NYX</span>
             </a>
+            <span class="ca-badge" onclick="copyCA(this)" title="Click to copy CA">CA: bwmg...n7gg</span>
           </span>
         </div>
         <div class="entry">
@@ -351,5 +375,34 @@
         <button type="submit" class="subscribe-btn">SUBSCRIBE</button>
       </form>
     </div>
+
+    <script>
+      function copyCA(element) {
+        const caAddress = 'bwmgimkgxjpfpdubzejqhswdtc8sx1u6s1kbfsy1n7gg';
+        navigator.clipboard.writeText(caAddress).then(() => {
+          element.classList.add('copied');
+          element.textContent = 'Copied!';
+          setTimeout(() => {
+            element.classList.remove('copied');
+            element.textContent = 'CA: bwmg...n7gg';
+          }, 2000);
+        }).catch(() => {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = caAddress;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+
+          element.classList.add('copied');
+          element.textContent = 'Copied!';
+          setTimeout(() => {
+            element.classList.remove('copied');
+            element.textContent = 'CA: bwmg...n7gg';
+          }, 2000);
+        });
+      }
+    </script>
   </body>
 </html>
